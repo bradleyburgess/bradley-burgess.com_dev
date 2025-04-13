@@ -1,49 +1,82 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
+import HighlightBlock from '../../components/HighlightBlock.astro';
 import ProjectPreview from '../../components/ProjectPreview.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 export async function getStaticPaths() {
-    const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-    const projectCount = projects.length;
-    return projects.map((project, index) => ({
-        params: { id: project.id },
-        props: {
-            project,
-            prevProject: index + 1 !== projectCount ? projects[index + 1] : null,
-            nextProject: index !== 0 ? projects[index - 1] : null
-        }
-    }));
+  const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
+  const projectCount = projects.length;
+  return projects.map((project, index) => ({
+    params: { id: project.id },
+    props: {
+      project,
+      prevProject: index + 1 !== projectCount ? projects[index + 1] : null,
+      nextProject: index !== 0 ? projects[index - 1] : null,
+    },
+  }));
 }
 
 type Props = {
-    project: CollectionEntry<'projects'>;
-    prevProject: CollectionEntry<'projects'>;
-    nextProject: CollectionEntry<'projects'>;
+  project: CollectionEntry<'projects'>;
+  prevProject: CollectionEntry<'projects'>;
+  nextProject: CollectionEntry<'projects'>;
 };
 
 const { project, prevProject, nextProject } = Astro.props;
-const { title, description, seo } = project.data;
+const { title, description, seo, links } = project.data;
 const { Content } = await render(project);
 ---
 
 <BaseLayout title={seo?.title ?? title} description={seo?.description ?? description} image={seo?.image} pageType="article" showHeader={false}>
-    <article class="mb-16 sm:mb-24">
-        <header class="mb-8">
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
-        </header>
-        <div class="max-w-none prose sm:prose-lg">
-            <Content />
-        </div>
-    </article>
-    {
-        (prevProject || nextProject) && (
-            <div class="my-16 sm:my-24">
-                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">View Next</h2>
-                {nextProject && <ProjectPreview project={nextProject} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevProject && <ProjectPreview project={prevProject} class="mb-10 sm:mb-12" headingLevel="h3" />}
+  <article class="mb-16 sm:mb-24">
+    <header class="mb-8">
+      <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
+    </header>
+    <div class="max-w-none prose sm:prose-lg">
+      <!-- prose-code:before:content-none prose-code:after:content-noneprose-code:bg-neutral-300 dark:prose-code:bg-neutral-700 -->
+      {
+        (links || seo?.image) && (
+          <HighlightBlock>
+            <div class="grid gap-6 lg:gap-10 lg:grid-cols-3">
+              {seo?.image && <div class="not-prose col-span-2">{seo?.image && <img src={seo.image.src} alt={seo.image.alt} />}</div>}
+              {links && (
+                <div class="flex flex-col justify-center">
+                  <h2>Project Links</h2>
+                  <ul class="ml-2">
+                    {links.github && (
+                      <li>
+                        <a href={links.github}>GitHub repo</a>
+                      </li>
+                    )}
+                    {links.demo && (
+                      <li>
+                        <a href={links.demo}>Live demo</a>
+                      </li>
+                    )}
+                    {links.other && (
+                      <li>
+                        <a href={links.other.href}>{links.other.text}</a>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )}
             </div>
+          </HighlightBlock>
         )
-    }
+      }
+      <Content />
+    </div>
+  </article>
+  {
+    (prevProject || nextProject) && (
+      <div class="my-16 sm:my-24">
+        <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">View Next</h2>
+        {nextProject && <ProjectPreview project={nextProject} class="mb-10 sm:mb-12" headingLevel="h3" />}
+        {prevProject && <ProjectPreview project={prevProject} class="mb-10 sm:mb-12" headingLevel="h3" />}
+      </div>
+    )
+  }
 </BaseLayout>

@@ -8,17 +8,23 @@ type Props = ButtonProps | AnchorProps;
 
 const { href, class: className, ...rest } = Astro.props;
 const buttonClasses =
-    'inline-flex items-center justify-center px-6 py-2 font-serif leading-tight italic text-main bg-main border border-main rounded-full transition hover:bg-muted';
+  'inline-flex items-center justify-center px-4 py-2 font-serif leading-tight text-main bg-main border border-main rounded-full transition hover:bg-muted';
+
+const spanClasses = 'inline-block relative top-0.5';
 ---
 
 {
-    href ? (
-        <a href={href} class:list={[buttonClasses, className]} {...rest}>
-            <slot />
-        </a>
-    ) : (
-        <button class:list={[buttonClasses, 'cursor-pointer', className]} {...rest}>
-            <slot />
-        </button>
-    )
+  href ? (
+    <a href={href} class:list={[buttonClasses, className]} {...rest}>
+      <span class={spanClasses}>
+        <slot />
+      </span>
+    </a>
+  ) : (
+    <button class:list={[buttonClasses, 'cursor-pointer', className]} {...rest}>
+      <span class={spanClasses}>
+        <slot />
+      </span>
+    </button>
+  )
 }

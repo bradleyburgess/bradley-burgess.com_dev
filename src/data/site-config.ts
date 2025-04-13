@@ -1,123 +1,132 @@
 export type Image = {
-    src: string;
-    alt?: string;
-    caption?: string;
+  src: string;
+  alt?: string;
+  caption?: string;
 };
 
 export type Link = {
-    text: string;
-    href: string;
+  text: string;
+  href: string;
 };
 
 export type Hero = {
-    title?: string;
-    text?: string;
-    image?: Image;
-    actions?: Link[];
+  title?: string;
+  text?: string;
+  image?: Image;
+  actions?: Link[];
 };
 
 export type Subscribe = {
-    title?: string;
-    text?: string;
-    formUrl: string;
+  title?: string;
+  text?: string;
+  formUrl: string;
 };
 
 export type SiteConfig = {
-    website: string;
-    logo?: Image;
-    title: string;
-    subtitle?: string;
-    description: string;
-    image?: Image;
-    headerNavLinks?: Link[];
-    footerNavLinks?: Link[];
-    socialLinks?: Link[];
-    hero?: Hero;
-    subscribe?: Subscribe;
-    postsPerPage?: number;
-    projectsPerPage?: number;
+  website: string;
+  logo?: Image;
+  title: string;
+  subtitle?: string;
+  description: string;
+  image?: Image;
+  headerNavLinks?: Link[];
+  footerNavLinks?: Link[];
+  socialLinks?: Link[];
+  hero?: Hero;
+  subscribe?: Subscribe;
+  postsPerPage?: number;
+  projectsPerPage?: number;
 };
 
+const heroText = `
+I'm a developer & musician. Basically, I really like things with keyboards. 
+This is my developer portfolio and blog. If you're here for music, you 
+probably want my [other site](https://music.bradley-burgess.com).`;
+
 const siteConfig: SiteConfig = {
-    website: 'https://example.com',
-    title: 'Dante',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+  website: 'https://dev.bradley-burgess.com',
+  title: 'Bradley Burgess',
+  subtitle: 'Developer & Musician',
+  description: 'Blog and portfolio for Bradley Burgess',
+  image: {
+    src: '/dante-preview.jpg',
+    alt: 'Dante - Astro.js and Tailwind CSS theme',
+  },
+  headerNavLinks: [
+    {
+      text: 'Home',
+      href: '/',
+    },
+    {
+      text: 'About',
+      href: '/about',
+    },
+    {
+      text: 'Projects',
+      href: '/projects',
+    },
+    {
+      text: 'Blog',
+      href: '/blog',
+    },
+    {
+      text: 'Contact',
+      href: '/contact',
+    },
+    // {
+    //     text: 'Tags',
+    //     href: '/tags',
+    // },
+  ],
+  footerNavLinks: [
+    {
+      text: 'Contact',
+      href: '/contact',
+    },
+    {
+      text: 'Terms',
+      href: '/terms',
+    },
+  ],
+  socialLinks: [
+    {
+      text: 'Bluesky',
+      href: 'https://bsky.app/profile/bburgesskeys.bsky.social/',
+    },
+    {
+      text: 'GitHub',
+      href: 'https://github.com/bradleyburgess/',
+    },
+    {
+      text: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/bburgesskeys/',
+    },
+  ],
+  hero: {
+    title: "Hi, I'm Bradley",
+    text: heroText,
     image: {
-        src: '/dante-preview.jpg',
-        alt: 'Dante - Astro.js and Tailwind CSS theme'
+      src: '/headshot-6x5.jpg',
+      alt: 'Bradley in a black shirt and black jacket, smiling at the camera',
     },
-    headerNavLinks: [
-        {
-            text: 'Home',
-            href: '/'
-        },
-        {
-            text: 'Projects',
-            href: '/projects'
-        },
-        {
-            text: 'Blog',
-            href: '/blog'
-        },
-        {
-            text: 'Tags',
-            href: '/tags'
-        }
+    actions: [
+      {
+        text: 'Get in touch',
+        href: '/contact',
+      },
+      {
+        text: 'Read my story',
+        href: '/about',
+      },
     ],
-    footerNavLinks: [
-        {
-            text: 'About',
-            href: '/about'
-        },
-        {
-            text: 'Contact',
-            href: '/contact'
-        },
-        {
-            text: 'Terms',
-            href: '/terms'
-        },
-        {
-            text: 'Download theme',
-            href: 'https://github.com/JustGoodUI/dante-astro-theme'
-        }
-    ],
-    socialLinks: [
-        {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
-        },
-        {
-            text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/'
-        }
-    ],
-    hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence. My approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products. I have a profound appreciation for top-notch software, visual design, and the principles of product-led growth. Feel free to explore some of my coding endeavors on <a href='https://github.com/JustGoodUI/dante-astro-theme'>GitHub</a> or follow me on <a href='https://twitter.com/justgoodui'>Twitter/X</a>.",
-        image: {
-            src: '/hero.jpeg',
-            alt: 'A person sitting at a desk in front of a computer'
-        },
-        actions: [
-            {
-                text: 'Get in Touch',
-                href: '/contact'
-            }
-        ]
-    },
-    subscribe: {
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
-        formUrl: '#'
-    },
-    postsPerPage: 8,
-    projectsPerPage: 8
+  },
+  // subscribe: {
+  //     title: 'Subscribe to Dante Newsletter',
+  //     text: 'One update per week. All the latest posts directly in your inbox.',
+  //     formUrl: '#',
+  // },
+  postsPerPage: 8,
+  projectsPerPage: 8,
 };
 
 export default siteConfig;

@@ -1,43 +1,48 @@
 ---
-title: About
+title: About Me
 seo:
   title: About Me
-  description: Learn more about the person behind the website and embark on a journey of inspiration and shared experiences.
+  description: Bradley Burgess is a developer & musician who is passionate about open source software and
+    building beautiful things.
   image:
-    src: '/about.jpeg'
-    alt: A person sitting at a desk in front of a computer
+    src: '/bradley-piano-landscape.jpg'
+    alt: Bradley playing a grand piano, looking down, lost in the music
 ---
 
-![Alt text for image](/about.jpeg)
+![Bradley playing a grand piano, looking down, lost in the music](/bradley-piano-landscape.jpg)
 
-**Note!:** This about page is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+> _I love keyboards — I think that's the TL;DR of it._
 
-## Ethan Donovan - Web Developer based in Estonia
+## My story
 
-**Greetings!** I'm Ethan Donovan, a passionate web developer residing in the picturesque landscapes of [Estonia](https://en.wikipedia.org/wiki/Estonia). With a keen eye for design and a love for crafting seamless digital experiences, I bring a unique blend of creativity and technical expertise to the world of web development.
+I have always loved music and I have always loved tech — and I can trace both
+passions back to early [“core
+memories”](https://insideout.fandom.com/wiki/Core_Memories).
 
-## Skills and Expertise
+I fell in love with computers at the age of 8 or so when a school friend's mom
+taught me how to use DOS and walked me through writing my first program in
+QBasic. In hindsight, it was a really trivial program (a CLI directory /
+phonebook app), but that amazing feeling of putting words in a text editor
+causing a computer to ask you questions and then save the responses to disk? The
+feeling of that memory never went away. Similarly, the feeling of bringing
+something to life with a keyboard stayed with me…
 
-I specialize in front-end and back-end development, utilizing the latest technologies to build responsive and user-friendly websites. My proficiency includes **HTML**, **CSS**, **JavaScript**, and frameworks such as **Astro.js** for dynamic and interactive user interfaces. On the server side, I'm well-versed in Node.js and have experience with database management systems like MongoDB.
+I fell in love with music a little earlier than that. I don't know how old I was
+exactly, but I would “help” my sister (10 years older than me) practice. This I
+would do by standing at the lower end of the piano, and playing specified bass
+notes when she told me to. I'm sure I was more a nuisance than anything, but
+those memories started a love affair with the piano and, subsequently, the pipe
+organ.
 
-## Innovation and Problem-Solving
+Ultimately, music won, and I went on to study music at universities and
+conservatories and have a professional career in music as a pianist, organist,
+and conductor. I have loved every minute.
 
-I thrive on solving complex problems and transforming ideas into functional, elegant websites. Whether it's optimizing performance, implementing new features, or troubleshooting issues, I approach each challenge with enthusiasm and a commitment to delivering high-quality solutions.
+However, after 20 years, it is time for a change, and I am now pursuing a career
+in tech.
 
-## Global Perspective, Local Impact
-
-Living in Estonia has not only influenced my appreciation for nature and culture but has also shaped my approach to web development. I understand the importance of creating digital solutions that resonate with local audiences while maintaining a global perspective.
-
-## Continuous Learning
-
-The dynamic nature of the tech industry inspires me to stay up-to-date with the latest trends and advancements. I'm always eager to expand my skill set and embrace emerging technologies that enhance the functionality and aesthetics of the websites I create.
-
-## Collaboration and Communication
-
-I believe in the power of collaboration and effective communication. Whether working with clients, designers, or fellow developers, I value clear communication to ensure the success of every project.
-
-## Get in Touch
-
-Are you looking to elevate your online presence or bring your digital ideas to life? I'd love to hear from you! Feel free to reach out for collaboration, consultation, or just a friendly chat about all things web development.
-
-_Let's build something amazing together!_
+If there's one thing that ties my passions together, it's keyboards. I love
+keyboards — I think that's the TL;DR of it. That might sound silly, but
+ultimately I derive a lot of satisfaction from using my hands to make
+instruments do amazing things — whether that's writing code to build an app, or
+coaxing beautiful sounds from a massive pipe organ.
