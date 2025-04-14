@@ -12,7 +12,13 @@ seo:
 import { Image } from 'astro:assets';
 import bradleyPianoLandscape from '../../../public/bradley-piano-landscape.jpg';
 
-<Image src={bradleyPianoLandscape} alt="Bradley playing a grand piano, looking down, lost in the music" loading="eager" />
+<Image
+  src={bradleyPianoLandscape}
+  alt="Bradley playing a grand piano, looking down, lost in the music"
+  loading="eager"
+  sizes="(max-width: 800px 100vw, 768px"
+  widths={[400, 600, 800, 1024]}
+/>
 
 > _I love keyboards — I think that's the TL;DR of it._
 

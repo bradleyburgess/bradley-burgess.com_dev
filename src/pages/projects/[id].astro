@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import HighlightBlock from '../../components/HighlightBlock.astro';
 import ProjectPreview from '../../components/ProjectPreview.astro';
@@ -42,7 +43,17 @@ const { Content } = await render(project);
             <div class="grid gap-6 lg:gap-10 lg:grid-cols-3">
               {seo?.image && (
                 <div class="not-prose col-span-2">
-                  {seo?.image && <img src={seo.image.src} alt={seo.image.alt} loading="eager" width={1200} height={675} />}
+                  {seo?.image && (
+                    <Image
+                      src={seo.image.src}
+                      alt={seo.image.alt || ''}
+                      loading="eager"
+                      width={1200}
+                      height={675}
+                      sizes="(max-width: 1024px) 100vw, 500px"
+                      widths={[400, 800, 1024, 1400]}
+                    />
+                  )}
                 </div>
               )}
               {links && (

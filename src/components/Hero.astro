@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { marked } from 'marked';
 import siteConfig from '../data/site-config';
 import Button from './Button.astro';
@@ -12,7 +13,7 @@ const hero = siteConfig.hero;
       {hero.title && <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{hero.title}</h1>}
       {hero.image?.src && (
         <figure>
-          <img
+          <Image
             class="w-full"
             src={hero.image.src}
             loading="eager"
@@ -20,6 +21,8 @@ const hero = siteConfig.hero;
             height={hero.image.height}
             decoding="async"
             alt={hero.image.alt || ''}
+            sizes="(max-width: 800px 100vw, 768px"
+            widths={[400, 600, 800, 1024]}
           />
           {hero.image.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{hero.image.caption}</figcaption>}
         </figure>

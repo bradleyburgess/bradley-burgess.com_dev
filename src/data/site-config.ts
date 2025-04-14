@@ -91,6 +91,10 @@ const siteConfig: SiteConfig = {
       text: 'Terms',
       href: '/terms',
     },
+    {
+      text: 'Music',
+      href: 'https://music.bradley-burgess.com',
+    },
   ],
   socialLinks: [
     {
