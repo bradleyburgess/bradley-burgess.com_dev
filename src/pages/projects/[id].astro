@@ -40,7 +40,11 @@ const { Content } = await render(project);
         (links || seo?.image) && (
           <HighlightBlock>
             <div class="grid gap-6 lg:gap-10 lg:grid-cols-3">
-              {seo?.image && <div class="not-prose col-span-2">{seo?.image && <img src={seo.image.src} alt={seo.image.alt} />}</div>}
+              {seo?.image && (
+                <div class="not-prose col-span-2">
+                  {seo?.image && <img src={seo.image.src} alt={seo.image.alt} loading="eager" width={1200} height={675} />}
+                </div>
+              )}
               {links && (
                 <div class="flex flex-col justify-center">
                   <h2>Project Links</h2>

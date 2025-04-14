@@ -2,6 +2,8 @@ export type Image = {
   src: string;
   alt?: string;
   caption?: string;
+  width: number;
+  height: number;
 };
 
 export type Link = {
@@ -49,8 +51,10 @@ const siteConfig: SiteConfig = {
   subtitle: 'Developer & Musician',
   description: 'Blog and portfolio for Bradley Burgess',
   image: {
-    src: '/dante-preview.jpg',
-    alt: 'Dante - Astro.js and Tailwind CSS theme',
+    src: '/headshot-6x5.jpg',
+    alt: 'Bradley Burgess | Developer & Musician',
+    width: 1200,
+    height: 1000,
   },
   headerNavLinks: [
     {
@@ -108,6 +112,8 @@ const siteConfig: SiteConfig = {
     image: {
       src: '/headshot-6x5.jpg',
       alt: 'Bradley in a black shirt and black jacket, smiling at the camera',
+      width: 1200,
+      height: 1000,
     },
     actions: [
       {
