@@ -11,9 +11,18 @@ export default defineConfig({
   site: siteConfig.website,
 
   vite: {
-      plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
   integrations: [mdx(), sitemap()],
-  adapter: netlify()
+  adapter: netlify(),
+  image: {
+    domains: ['images.unsplash.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+  },
 });
