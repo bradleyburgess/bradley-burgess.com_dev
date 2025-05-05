@@ -1,0 +1,75 @@
+---
+title: 'Building an MVP in 7 Days: Day 2'
+excerpt: >
+  Day 1 of building an MVP in 7 days.
+publishDate: '14 Apr 2025'
+isFeatured: true
+tags:
+  - mvp-in-7-days
+seo:
+  image:
+    src: '/mvp-in-7-days-day2.png'
+    alt: 'Day 2'
+---
+
+After the weekend, I'm back at the *Building an MVP in 7 Days* project!
+
+Last time, we did a lot of the basic setup, including initializing a git
+repository, installaing Django, implementing a custom `User` model (very
+important!) and installed and configured Tailwind. That puts us in a *great*
+position to begin working on features!
+
+What I would like to accomplish today is to get two of the basic things taken
+care of: authentication (including signup and login), creating a Choir, and
+inviting users.
+
+In the final product, users won't be able to just sign up willy-nilly — at least
+not on the hosted version. A choir admin will need to either (1) start a trial
+to try out QuireHub, or (2) go straight to starting a subscription.
+
+Either way, the choir admin will be the one who registers for QuireHub and sets
+up the choir hub. After that, they will invite members to join. In production,
+emails will get sent to users/members, who can then activate their account and
+set up their profile. In development we will opt for in-terminal "emails" with
+activation links. I'll need to think through how this will work on a live demo
+version of the site — but I'm thinking that the activation link will just be
+shown in the admin's dashboard? We'll cross that bridge when we get to it.
+
+## First models
+
+The first thing we should do is set up auth routes for the choir admin(s).
+Things in terms of user stories, an admin should be able to sign up (ie start a
+choir hub) and log in. Those are really the first basic features we need to
+solve.
+
+We've already set up a User model. Now we're going to set up a `Choir` model and
+also a `Membership` model. I mentioned in [the first
+post](/blog/mvp-in-7-days-overview/) that having a sense of the final features
+will help make smart decisions in the beginning. The big one here is
+multi-tenancy. I want the possibility of multiple choirs (for the hosted
+version), and for users to potentially have different roles in their choirs;
+perhaps User A is an admin in Choir A, but a regular member in Choir B. In order
+to do that, we'll need different roles, and some way to connect `User`s and
+`Choir`s with roles — we'll do this with a `Membership` model, which will act as
+something of a join table.
+
+
+## `Core` app
+
+I still have a little difficulty aligning my mental model with the Django way of
+doing "apps". Apps are self-contained units of a project that — in theory — can
+be completely isolated and parceled like a PyPI package and plugged into another
+Django project. I get all this. But sometimes the lines between apps and
+features is a little fuzzy for me still.
+
+After spending a fair bit of time thinking about it, I'm going to go with a
+`core` app that contains some of the, well, core functionality of the project.
+This will include `Choir`s, and `Membership`s. I might add more to that, but I
+can foresee features like announcements and events being parsed out into their
+own apps, but perhaps that is too much for an MVP. I can always revise that.
+
+So, let's do it. We'll start by creating a new `core` app:
+
+```bash
+python3 manage.py startapp core
+```

@@ -21,6 +21,9 @@ There are options for customization, but the gist of it is that the plugin will
 throw an error during build if there is a broken link, and warn if there are
 redirects.
 
+The plugin runs after the Eleventy build step and checks all output HTML for
+broken internal and external links
+
 ## Project story
 
 My current personal sites both use [Astro](https://astro.build), however I am

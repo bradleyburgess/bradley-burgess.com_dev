@@ -14,10 +14,9 @@ seo:
 
 ## Project overview
 
-This is a simple web app written in pure HTML, CSS and JS for finding the
-closest matching standard 256 (8bit) color from a given input color. This is
-useful if you're styling e.g. `xterm` and need to find the closest color in the
-palette.
+A tiny CLI tool for picking the closest 256-color/8-bit match to a given RGB or
+hex color — perfect for theme designers, terminal tinkerers, and anyone working
+with ANSI colors.
 
 ## Features
 
