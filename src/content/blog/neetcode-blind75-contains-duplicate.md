@@ -37,8 +37,8 @@ problem in as many different ways as I want.
 
 The first problem is deceptively simple:
 
-> Given an integer array `nums`, return `true` if any value appears **at least
-> twice** in the array, and return `false` if every element is distinct.
+*Given an integer array `nums`, return `true` if any value appears **at least
+twice** in the array, and return `false` if every element is distinct.*
 
 Seems straightforward, but as is often the case, there are multiple ways to
 solve it, each with different tradeoffs. I wanted to explore that explicitly, so
