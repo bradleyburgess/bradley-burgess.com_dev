@@ -30,28 +30,35 @@ it all together.
 
 ## 📘 Learning C# from the Ground Up
 
-Before *tsk*, I had never written a single ling of code in C#. Coming from a
+Before *tsk*, I had never written a single line of code in C#. Coming from a
 primarily Python and Type-/JavaScript background, I found C# to be both powerful and
 expressive. Here are some takeaways:
 
 - **Strong typing:** I love the strong and strict typing. TypeScript is… nice…
-  but it's plain as day to me now that it's not really a strongly-typed
-  language.
+  but it's plain as day to me now that it's not really a strongly-typed language
+  — not in the same way that C#, Jave, or Go are. TypeScript feels a lot more like
+  “syntactical sugar” after having used a language like C#.
 - **String interpolation and pattern matching:** These made CLI output code
   cleaner than I'd expected. I love the `$""` interpolation and `@""` verbatim
   syntax.
-- **Learning project structure:** Understanding `.csproj` files, `dotnet`
-  commands, and how builds actually work was surprisingly rewarding.
-- **Good architecture:** C# basically forces you to build things better than
-  loosey-goosey languages. Can you write bad C# code? Of course. But I do feel
-  like it's harder.
+- **Good architecture:** C# nudges you to build things better than you can get
+  away with using loosey-goosey languages. Can you write bad C# code? Of course.
+  But I do feel like it's harder. And, conversely, it's easier to write better
+  code with a first-party DI container, and all the other C#/.NET goodies.
+- **Great tooling:** As someone whose primary OS is a Linux distro, I was
+  nervous about C#/.NET's connection to the Microsoft ecosystem — mostly because
+  I thought I'd be fighting an uphill battle developing in C# on Linux. But I
+  quickly found that this is absolutely not the case in 2025. The `dotnet` SDK
+  CLI is really powerful, and while VS Code doesn't have all the Visual Studio
+  bells and whistles, with the C# Dev Kit extension, you can be extremely
+  productive.
 
 ---
 
 ## 🧱 Object-Oriented Programming in Practice
 
-One of my goals was to really get to grips with OOP. Instead of just reading about
-inheritance and encapsulation, I applied them:
+One of my goals was to really get to grips with OOP. Instead of just reading
+about inheritance and encapsulation, I applied them:
 
 - I created a `TodoItem` entity and surrounded it with **real-world
   responsibilities**: parsing, validation, mutation.
@@ -61,7 +68,7 @@ inheritance and encapsulation, I applied them:
 - I used **dependency injection** and **factory methods** to make code more loosely
   coupled and easily testable
 
-This reinforced not just the "what" of OOP, but the *why* — how it leads to
+This reinforced not just the *what* of OOP, but the *why* — how it leads to
 testability, flexibility, and clarity when used well.
 
 ---
@@ -72,16 +79,17 @@ I structured the app using a layered architecture:
 
 - **`Tsk.Domain/`**: Core business logic, entities, and validation  
 - **`Tsk.Infrastructure/`**: File I/O, serialization  
-- **`Tsk.CLI/`**: Presentation layer using `Spectre.Console.Cli` (boy is that a great library!)
+- **`Tsk.CLI/`**: Presentation layer using `Spectre.Console.Cli` (boy is that a
+  great library!)
 
-This separation of concerns made the codebase feel maintainable and scalable
-from day one. It also helped me understand:
+Even though it's a small app, this separation of concerns made the codebase feel
+maintainable and scalable from day one. It also helped me understand:
 
 - How layers talk to each other (via interfaces and dependency injection)
 - How to write code that is decoupled from its environment
 
 This was my first real attempt at "clean architecture," and it felt fantastic.
-It definitely felt slow going at first, but once I hit the `CLI` layer, it
+It definitely was slow going at first, but once I hit the `CLI` layer, it
 really started to fly, as I could build confidently knowing that all tests were
 passing and everything was well-architected.
 
@@ -89,16 +97,19 @@ passing and everything was well-architected.
 
 ## 💉 Dependency Injection
 
-At first, DI felt abstract. But as soon as I needed to:
+I tried manual DI in a previous Node project. I saw how powerful it was, but
+manually injecting dependencies becomes really clunky really fast. But this
+project really helped me see just why DI is so powerful. As soon as I need to:
 
-- Inject a mock repository in tests  
-- Swap between file-based and future database backends  
-- Pass shared config or services into CLI commands
+- inject a mock repository in tests  
+- swap between file-based and future database backends  
+- pass shared config or services into CLI commands
 
-...I realized why it's such a core part of modern development.
+… I realized why it's such a core part of modern development.
 
-I wired up a lightweight DI system using `Spectre.Console.Cli`'s custom type
-resolver, and organized services cleanly across the layers.
+I wired up a lightweight DI system using
+`Microsoft.Extensions.DependencyInjection` and `Spectre.Console.Cli`'s custom
+type resolver, and organized services cleanly across the layers.
 
 ---
 
@@ -181,12 +192,16 @@ And I want to keep refining my design patterns and release automation.
 
 Building *tsk* taught me more than I expected: not just about C# or CLIs, but
 about shipping software the right way. I went from a blank directory to a
-tested, documented, versioned, cross-platform release in just a few weeks.
+tested, documented, versioned, cross-platform release in just a couple weeks.
 
 I was a little tentative about C# at first, mostly because I thought it was very
 closely tied to the whole Microsoft ecosystem. But with the move to **.NET
 Core** (now just ".NET"), it's truly cross-platform. Developing on Linux in VS
-Code was very smooth with the **C# Dev Kit** extension.
+Code was very smooth with the **C# Dev Kit** extension and the `dotnet` SDK.
+
+I will definitely be back for more.
+
+---
 
 Check out the project:
 [https://github.com/bradleyburgess/tsk](https://github.com/bradleyburgess/tsk)
